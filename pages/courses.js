@@ -1,6 +1,6 @@
 const Courses = () => {
     return (
-      <div>contact</div>
+      <div>Courses</div>
     )
   }
   
