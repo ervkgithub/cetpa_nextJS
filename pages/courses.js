@@ -17,21 +17,20 @@ const Courses = (props) => {
   return (
     <div className="mt-5">
        <Row>
-      {data.slice(0,5).map((item) => {
+      {data.slice(0,4).map((item) => {
         return (
           <>
               <Col>
                 <Card className="mb-4" style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={item.image} width="100" />
+                  <Card.Img variant="top" src={item.image} width="150" height="300" />
                   <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>{item.description}</Card.Text>
+                    <Card.Title>{item.title.substring(0, 15)}</Card.Title>
+                    <Card.Text>{item.description.substring(0, 32)}</Card.Text>
                     <Card.Text><em>Price:</em> {item.price}</Card.Text>
                     <Button variant="primary">Buy Now</Button>
                   </Card.Body>
                 </Card>
               </Col>
-            
           </>
         );
       })}
