@@ -1,14 +1,25 @@
-import Header from "./header"
-import Footer from "./footer"
+import Header from "./header";
+import Footer from "./footer";
 
-const Layout = ({children}, props) => {
+const Layout = (props) => {
+  const { children, footerstatus } = props;
   return (
     <>
-    <Header />
-        {children}
-    <Footer />
+      {true ? (
+        <div className="container">
+          <Header />
+          {children}
+          {!footerstatus && <Footer />}
+        </div>
+      ) : (
+        <div className="container">
+          <Header />
+          {children}
+          {!footerstatus && <Footer />}
+        </div>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
