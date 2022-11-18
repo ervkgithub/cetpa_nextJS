@@ -24,3 +24,7 @@ a {
     background: black;
   }
 }
+
+.navbar-expand-lg .navbar-collapse{
+  justify-content: right;
+}
