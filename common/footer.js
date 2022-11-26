@@ -10,26 +10,31 @@ const Footer = () => {
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link px-2 text-muted">
-              Features
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-muted">
-              Pricing
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-muted">
-              FAQs
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-muted">
               About
             </a>
           </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-muted">
+              Courses
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-muted">
+              Contact us
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-muted">
+              Register
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-muted">
+              Login
+            </a>
+          </li>
         </ul>
-        <p className="text-center text-muted">© 2021 Company, Inc</p>
+        <p className="text-center text-muted">© 2022 Company, Altudo</p>
       </footer>
     </>
   );

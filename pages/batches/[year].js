@@ -1,44 +1,75 @@
-import React from 'react'
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Link from "next/link";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
-//SSG
-export const getStaticPaths = async() => {
-    // const arr = ['2022', '2021', '2020', '2019', '2018'];
-    const response = await fetch('https://fakestoreapi.com/products');
-    const arr = await response.json();
-    const paths = arr.map((item) => {
-        return {
-            params: {year: item.id.toString()}
-        }
-    })
+export const getStaticPaths = async () => {
+  // const arr = ['2022', '2021', '2020', '2019', '2018'];
+  const response = await fetch("https://fakestoreapi.com/products");
+  const arr = await response.json();
+  const paths = arr.map((item) => {
     return {
-        paths,
-        fallback: false // if page fails - go for 404.js
-    }
-}
+      params: { year: item.id.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
 export const getStaticProps = async (context) => {
-    console.log(context.params);
-    const temp = context.params.year;
-    const response = await fetch('https://fakestoreapi.com/products/'+temp);
-    const data = await response.json();
-    return {
-        props: {
-            res: data,
-            notFound: true // if page fails - go for 404.js
-        }
-    }
-}
+  console.log(context.params);
+  const temp = context.params.year;
+  const response = await fetch("https://fakestoreapi.com/products/" + temp);
+  const data = await response.json();
+  return {
+    props: {
+      res: data,
+      notFound: true,
+    },
+  };
+};
 
-const Year = ({res}) => {
-    console.log('res' - res);
+const Year = ({ res }) => {
+  console.log("res" - res);
   return (
-    <div>
-        <h2>Batch Page - {res.title}</h2>
-        <div>{res.price}</div>
-        <div>{res.category}</div>
-        <div><img src={res.image}/></div>
-    </div>
-  )
-}
+    <>
+      <Row>
+        <>
+          <Breadcrumb>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="/batches">
+              Batches
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>
+              {res.id}
+            </Breadcrumb.Item>
+          </Breadcrumb>
+          <Col>
+            <Card className="mb-4" style={{ width: "18rem" }}>
+              <Card.Img
+                variant="top"
+                src={res.image}
+                width="150"
+                height="300"
+              />
+              <Card.Body>
+                <Card.Title>{res.title.substring(0, 15)}</Card.Title>
+                <Card.Text>{res.description.substring(0, 32)}</Card.Text>
+                <Card.Text>
+                  <em>Price:</em> {res.price}
+                </Card.Text>
+                <Button variant="primary">Checkout</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </>
+      </Row>
+    </>
+  );
+};
 
 export default Year;

@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Logo
+            <img src="/altudo-logo.png" width="200" />
           </a>
           <button
             className="navbar-toggler"
@@ -48,8 +48,23 @@ const Header = () => {
                   Cotact us
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="/register">
+                  Register
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="#">
+                  Logout
+                </Link>
+              </li>
             </ul>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -57,7 +72,7 @@ const Header = () => {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
           </div>
         </div>
       </nav>

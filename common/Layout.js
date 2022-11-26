@@ -6,17 +6,21 @@ const Layout = (props) => {
   return (
     <>
       {true ? (
+        <>
+        <Header />
         <div className="container">
-          <Header />
           {children}
-          {!footerstatus && <Footer />}
         </div>
+        {!footerstatus && <Footer />}
+        </>
       ) : (
+        <>
+        <Header />
         <div className="container">
-          <Header />
           {children}
-          {!footerstatus && <Footer />}
         </div>
+        {!footerstatus && <Footer />}
+        </>
       )}
     </>
   );
