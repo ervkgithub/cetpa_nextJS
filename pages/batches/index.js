@@ -7,7 +7,7 @@ import Link from "next/link";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://fakestoreapi.com/products");
+  const res = await fetch(process.env.API_URL);
   const data = await res.json();
   return {
     props: { data: data },
@@ -18,7 +18,7 @@ const Batches = (props) => {
   const { data } = props;
   console.log(data);
   return (
-    <div className="mt-5">
+    <div className="mt-4">
          <Breadcrumb>
             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
             <Breadcrumb.Item active href="/batches">
