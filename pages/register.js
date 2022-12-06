@@ -3,6 +3,10 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Modal from 'react-bootstrap/Modal';
+import { useRouter } from "next/router";
+import Link from "next/link";
+var router;
 
 const handleRegister = async (event) => {
   event.preventDefault()
@@ -27,7 +31,7 @@ const handleRegister = async (event) => {
   const result = await response.json();
   console.log(result);
   if(data.userid == result.userid && data.username == result.username && data.name == result.name && data.email == result.email && data.password == result.password && data.mobile == result.mobile){
-    alert("Registration success")
+    router.push("/success");
   }
   else{
     alert(result.message);
@@ -35,6 +39,7 @@ const handleRegister = async (event) => {
 }
 
 const register = () => {
+  router = useRouter();
   return (
     <>
         <Row>
@@ -76,6 +81,12 @@ const register = () => {
             <Button variant="primary" type="submit">
               Register
             </Button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link href="/login">
+            <Button variant="secondary" type="submit">
+              Already regustered, Login here?
+            </Button>
+            </Link>
           </Form>
         </Col>
       </Row>
