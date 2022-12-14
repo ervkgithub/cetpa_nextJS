@@ -65,7 +65,12 @@ const handleLogin = async (event) => {
   const result = await response.json();
   console.log(result);
   if (data.email == result.email && data.password == result.password) {
+    localStorage.setItem("loginStatus", true);
+    localStorage.setItem("loginEmail", result.email);
+    var loginStatus = localStorage.getItem("loginStatus");
+    if(loginStatus){
     router.push("/dashboard");
+    }
   } else {
     alert(result.message);
   }

@@ -8,6 +8,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 var router;
 
+export const getStaticProps = () =>{
+  let url = process.env.BASE_URL;
+  return{
+    props:{
+      baseurl : url
+    }
+  }
+}
+
 const handleRegister = async (event) => {
   event.preventDefault()
   const data = {
@@ -37,6 +46,8 @@ const handleRegister = async (event) => {
     alert(result.message);
   }
 }
+
+
 
 const register = () => {
   router = useRouter();
