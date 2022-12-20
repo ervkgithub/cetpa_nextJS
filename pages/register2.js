@@ -13,12 +13,6 @@ export const getStaticProps = () => {
 
 const Registration = (props) => {
 
-    // const initilObj = {
-    //     name: '',
-    //     email: '',
-    //     mobile: '',
-    //     password: ''
-    // }
     const [formdata, setFormdata] = useState({});
     const [errorformdata, setErrorFormdata] = useState({});
     const [submitStatus, setSubmitStatus] = useState(false);
@@ -36,7 +30,6 @@ const Registration = (props) => {
                 console.log(response.data);
                 if(response.status === 201) {
                     setSubmitStatus(true);
-                    //setFormdata(initilObj);
                     router.push('/login');
                 }
             }
@@ -49,7 +42,7 @@ const Registration = (props) => {
 
     const validate = () => {
         if(formdata.mobile) {
-            if(formdata.mobile.length >5) {
+            if(formdata.mobile.length > 5) {
                 //remove error for mobile field
                 return true;
             }
@@ -87,10 +80,7 @@ const Registration = (props) => {
                 Form submitted.
             </div>
         )}
-        {/* <form action="api/login">
-            input elements
-            <button type='submit'></button>
-        </form> */}
+
         Name: <input type="text" name="name" onChange={handleChange} />
         <span className='text-danger'>{errorformdata.name}</span>
         <br></br>

@@ -24,11 +24,11 @@ const Login = (props) => {
         try{
             const response = await axios.post(url, formdata);
             console.log(response.data);
-            if(response.data.userid) {
+            if(response.data.email) {
                 localStorage.setItem('loginStatus', true);
                 localStorage.setItem('username', response.data.email);
                 localStorage.setItem('name', response.data.name)
-                router.push('/products');
+                router.push('/product');
             }
         }
         catch{

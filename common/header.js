@@ -1,8 +1,26 @@
 import Link from "next/link";
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
+import React, { useEffect, useState } from "react";
+import {useRouter} from 'next/router';
 
 const Header = () => {
+
+  const router = useRouter();
+
+  const [loginStatus, setLoginStatus] = useState();
+  useEffect(() => {
+    setLoginStatus(localStorage.getItem("loginStatus"));
+    console.log(loginStatus);
+  });
+
+  const logoutFn = () => {
+    localStorage.removeItem("loginStatus");
+    localStorage.removeItem("username");
+    localStorage.removeItem("name");
+    router.reload('/courses');
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -58,26 +76,26 @@ const Header = () => {
                   Register
                 </Link>
               </li>
+
+              {!loginStatus && (
+              <>  
               <li className="nav-item">
-                <Link className="nav-link" href="/login">
-                  Login
-                </Link>
-              </li>
+              <Link className="nav-link" href="/login">
+                Login
+              </Link>
+            </li>  
+              </>
+               )}
+               {loginStatus && (
+              <>  
               <li className="nav-item">
-                <Link className="nav-link" href="#">
+                <Link className="nav-link" href="#" onClick={logoutFn}>
                   Logout
                 </Link>
               </li>
+              </>
+               )}
             </ul>
-            {/* <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
           </div>
         </div>
       </nav>
