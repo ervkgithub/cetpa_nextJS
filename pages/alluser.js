@@ -1,28 +1,12 @@
 import Table from "react-bootstrap/Table";
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/users/alluser");
+  const res = await fetch(process.env.BASE_URL + "api/users/alluser");
   const data = await res.json();
   return {
     props: { data: data },
   };
 };
-
-const deleteFn = async (id) => {
-   console.log("deleteid" ,id)
-   const url = `http://localhost:3000/api/users/${id}`;
-   console.log(url)
-   try{
-    const response = await axios.delete(url);
-    console.log(response.data);
-    if(response.data) {
-      console.log(response.data);
-    }
-}
-catch{
-    // setSubmitStatus(true);
-}
-}
 
 const AllUsers = (props) => {
   const { data } = props;
@@ -53,7 +37,7 @@ const AllUsers = (props) => {
                     <td>{item.email}</td>
                     <td>{item.mobile}</td>
                     <td>{item.password}</td>
-                    <td><span onClick={()=> deleteFn(item._id)}>Delete</span> &nbsp; <span>Edit</span></td>
+                    <td><span>Delete</span> &nbsp; <span>Edit</span></td>
                   </tr>
                 );
               })}

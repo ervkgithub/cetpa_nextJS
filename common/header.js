@@ -67,11 +67,6 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="/drupal-carousel">
-                  Carousel Demo
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link" href="/register">
                   Register
                 </Link>
