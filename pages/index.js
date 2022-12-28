@@ -1,6 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import a from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import a from "../styles/Home.module.css";
+import HeroCarousel from "../common/carousel";
+import Content from "../common/content";
+import { Row } from "react-bootstrap";
+import CardDemo from "../common/card";
+import TabDemo from "../common/tab";
 
 export default function Home() {
   return (
@@ -12,7 +17,17 @@ export default function Home() {
       </Head>
 
       <main className={a.main}>
-        </main>
+        <HeroCarousel />
+        <Content />
+        <Row>
+        <CardDemo/>
+        <CardDemo/>
+        <CardDemo/>
+        </Row>
+        <Row>
+        <TabDemo />
+        </Row>
+      </main>
     </div>
-  )
+  );
 }

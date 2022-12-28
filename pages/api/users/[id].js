@@ -2,6 +2,15 @@ import Users from "../../../models/Users";
 import connectDb from "../../../middleware/mongoose";
 
 const handler = async(req, res) => {
+    if(req.method == 'GET') {
+        try{
+           let data = await Users.findById({_id:req.query.id});
+           res.status(200).json(data);
+        }
+        catch(err){
+            res.status(400).json({message: err.message})
+        }        
+    }
     if(req.method == 'DELETE') {
         try{
            await Users.findOneAndDelete({_id:req.query.id});

@@ -29,6 +29,14 @@ a {
   justify-content: right;
 }
 
+.container{
+  max-width: 100% !important;
+}
+
+.carousel{
+  width: 100%;
+}
+
 /*Loader demo*/
 
 .spinner-wrapper {

@@ -25,9 +25,9 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img src="/altudo-logo.png" width="200" />
-          </a>
+            <Link className="navbar-brand" aria-current="page" href="/">
+              <img src="/altudo-logo.png" width="200" />
+            </Link>
           <button
             className="navbar-toggler"
             type="button"
